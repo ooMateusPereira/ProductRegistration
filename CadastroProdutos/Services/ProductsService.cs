@@ -1,9 +1,10 @@
 ﻿using Microsoft.AspNetCore.Http.HttpResults;
+using ProductRegistration.Services;
 using System;
 
-namespace CadastroProdutos.Services
+namespace ProductRegistration.Services
 {
-    public class ProductsService
+    public class ProductsService : IProductsService
     {
         private static List<Product> products = new List<Product>()
         {

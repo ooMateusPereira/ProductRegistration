@@ -1,6 +1,7 @@
-﻿using CadastroProdutos.Services;
+﻿
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using ProductRegistration.Services;
 
 namespace CadastroProdutos.Controllers
 {
@@ -9,7 +10,12 @@ namespace CadastroProdutos.Controllers
     public class ProductsController : ControllerBase
     {
 
-        private ProductsService productsService = new ProductsService();
+        private IProductsService productsService;
+
+        public ProductsController(IProductsService productsService)
+        {
+            this.productsService = productsService;
+        }
 
         [HttpGet]
         public ActionResult<List<Product>> Get()
